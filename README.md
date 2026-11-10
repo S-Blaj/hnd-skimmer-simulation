@@ -5,27 +5,21 @@ A simplified Python model of **Kr pickup by helium nanodroplets (HNDs)**, pickup
 
 ## Experimental Setup
 
-![HND beamline geometry](figures/experimental_geometry.svg)
+![Experimental geometry](figures/experimental_geometry.svg)
 
 *Experimental geometry used in the simulation (not to scale).*
 
-The HND source operates with:
-- **Nozzle diameter:** 5 µm
-- **Stagnation pressure:** 50 bar
-- **Nozzle temperature:** 16 K
-- **Mean initial HND size:** 9,678 He atoms
-- **Lognormal width:** σ_lnN = 0.585431
+The simulations are based on a helium nanodroplet source operating
+at a stagnation pressure of 50 bar, with a 5 µm nozzle diameter
+and a nozzle temperature of 16 K.
 
-The simulation uses the prescribed initial HND-size distribution rather than calculating droplet sizes directly from the nozzle conditions.
+The initial HND sizes are sampled from a lognormal distribution
+with a mean of 9,678 He atoms and a logarithmic width of
+σ_lnN = 0.585431.
 
-The experimental geometry consists of:
-- Nozzle to SK1: 12 mm
-- SK1 to pickup-cell center: 340 mm
-- Pickup-cell length: 18 mm
-- Pickup-cell center to SK2: 166 mm
-
-Aperture diameters: SK1 = 0.4 mm, cell entrance = 3 mm, cell exit = 4 mm, SK2 = 3 mm.
-
+The initial size distribution is prescribed rather than
+calculated directly from the expansion conditions. The beamline
+dimensions and aperture sizes are specified in `geometry.py`.
 ## Model
 
 Kr pickup is estimated using a **Kuma-type analytical shrinkage model**.
@@ -39,7 +33,7 @@ Two mass approximations are compared:
 
 Both approximations include Kr pickup and the associated deflection. A separate **no-Kr reference** represents purely geometrical transmission without pickup-induced deflection.
 
-This is an exploratory model, not HeDopant or an event-by-event pickup simulation. Transmission estimates are not experimentally calibrated efficiencies. The effective He-loss coefficient is derived from interpolated HeDopant results.
+This is an exploratory model, not an event-by-event pickup simulation. Transmission estimates are not experimentally calibrated efficiencies. The effective He-loss coefficient is derived from interpolated HeDopant results.
 
 ## Installation and Usage
 
